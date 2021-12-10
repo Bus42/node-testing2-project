@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --forceExit --detectOpenHandles  --watchAll",
     "start": "node index.js",
     "server": "nodemon index.js"
   },
@@ -15,11 +15,15 @@
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "jest": "^27.4.3",
     "knex": "^0.95.14",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.4.1",
+    "jest": "^27.4.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
-    "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
   }
 }

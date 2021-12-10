@@ -9,8 +9,13 @@ const middleware = [
 
 server.use(middleware);
 
-server.use('/', (req, res) => {
+server.get('/', (req, res) => {
     res.status(200).send('API is running');
+})
+
+server.post('/', (req, res) => {
+    const payload = req.body;
+    res.status(201).send({ request: req.body, message: 'POST request received' });
 })
 
 module.exports = server;
