@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const server = require("../api/server");
 
+app.use('/', server);
+httpServer = require('http').createServer(app);
+
 const testUser = {
     username: "zaphod",
     password: "beeblebrox"
@@ -11,12 +14,11 @@ const testUser = {
 describe("GET /", () => {
 
     beforeEach(() => {
-        testApp = app.listen(0, done);
-        testApp.use('/', server);
+        httpServer.listen(0);
     })
 
     afterEach(() => {
-        testApp.close();
+        httpServer.close();
     })
 
     it("should return 200 when the server is running", async () => {
